@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2208e6ec-0364-47f9-8a67-c3ab712d361c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1b2ivbFdVN9TUqFYC9lfUDqiokR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Facultate\Semestrul 2\PS\Lab\Tema2\Server\databse" />
+      <recent name="E:\Facultate\Semestrul 2\PS\Lab\Tema2\Server\controller" />
+      <recent name="E:\Facultate\Semestrul 2\PS\Lab\Tema2\Server\models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="controller_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server_controller" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="E:\Facultate\Semestrul 2\PS\Lab\Tema2\Server\server_controller\controller_server.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.controller_server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2208e6ec-0364-47f9-8a67-c3ab712d361c" name="Default Changelist" comment="" />
+      <created>1587836820644</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587836820644</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="447" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588448624866">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="447" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1588448624866" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587888713553">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1587888713553" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1588423289758">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588423289758" />
+    <state width="745" height="259" key="GridCell.Tab.0.bottom" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.0.center" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.0.left" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.0.right" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.1.bottom" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.1.center" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.1.left" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state width="745" height="259" key="GridCell.Tab.1.right" timestamp="1588454130431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="745" height="259" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588454130431" />
+    <state x="555" y="58" key="SettingsEditor" timestamp="1587887083405">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="555" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587887083405" />
+    <state x="0" y="473" key="com.intellij.ide.util.TipDialog" timestamp="1588423281163">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="473" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588423281163" />
+  </component>
+</project>

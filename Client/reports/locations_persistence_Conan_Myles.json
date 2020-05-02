@@ -1,0 +1,32 @@
+[
+    {
+        "Employee": "Not assigned",
+        "Location_Name": 1,
+        "Ox": 10.42,
+        "Oy": 598.45
+    },
+    {
+        "Employee": "Dominic_Vega",
+        "Location_Name": 8,
+        "Ox": 103.39,
+        "Oy": 851.78
+    },
+    {
+        "Employee": "Not assigned",
+        "Location_Name": 23,
+        "Ox": 218.29,
+        "Oy": 29.16
+    },
+    {
+        "Employee": "Not assigned",
+        "Location_Name": 42,
+        "Ox": 354.93,
+        "Oy": 581.4
+    },
+    {
+        "Employee": "Not assigned",
+        "Location_Name": 89,
+        "Ox": 838.42,
+        "Oy": 718.74
+    }
+]

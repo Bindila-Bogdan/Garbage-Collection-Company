@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<locations>
+	<location>
+		<employee>Not assigned</employee>
+		<location_name>1</location_name>
+		<ox_coordinate>10.42</ox_coordinate>
+		<oy_coordinate>598.45</oy_coordinate>
+	</location>
+	<location>
+		<employee>Dominic_Vega</employee>
+		<location_name>8</location_name>
+		<ox_coordinate>103.39</ox_coordinate>
+		<oy_coordinate>851.78</oy_coordinate>
+	</location>
+	<location>
+		<employee>Not assigned</employee>
+		<location_name>23</location_name>
+		<ox_coordinate>218.29</ox_coordinate>
+		<oy_coordinate>29.16</oy_coordinate>
+	</location>
+	<location>
+		<employee>Not assigned</employee>
+		<location_name>42</location_name>
+		<ox_coordinate>354.93</ox_coordinate>
+		<oy_coordinate>581.4</oy_coordinate>
+	</location>
+	<location>
+		<employee>Not assigned</employee>
+		<location_name>89</location_name>
+		<ox_coordinate>838.42</ox_coordinate>
+		<oy_coordinate>718.74</oy_coordinate>
+	</location>
+</locations>
