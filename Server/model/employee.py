@@ -16,7 +16,7 @@ class Employee(GenericEmployee):
 
     def get_coordinator(self):
         if self.__coordinator is None:
-            return "Not assigned"
+            return "-"
         else:
             return self.__coordinator
 

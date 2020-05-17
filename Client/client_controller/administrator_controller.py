@@ -1,11 +1,41 @@
 class AdministratorController:
-    def __init__(self, administrator_view, processing_builder, administrator):
+    def __init__(self, administrator_view, processing_builder, administrator, language_subject):
         self.__administrator_view = administrator_view
         self.__administrator = administrator
         self.__administrator_window = self.__administrator_view.get_administrator_window()
         self.__processing_builder = processing_builder
         self.__employees_data = self.__processing_builder.get_employees_processing()
         self.__locations_data = self.__processing_builder.get_locations_processing()
+        self.__language_subject = language_subject
+
+    def language_buttons_listeners(self):
+        french_language_button = self.__administrator_view.get_french_language_button()
+        french_language_button.config(command=self.french_language_required)
+
+        english_language_button = self.__administrator_view.get_english_language_button()
+        english_language_button.config(command=self.english_language_required)
+
+        romanian_language_button = self.__administrator_view.get_romanian_language_button()
+        romanian_language_button.config(command=self.romanian_language_required)
+
+        spanish_language_button = self.__administrator_view.get_spanish_language_button()
+        spanish_language_button.config(command=self.spanish_language_required)
+
+    def french_language_required(self):
+        self.__language_subject.set_language("french")
+        self.__language_subject.notify()
+
+    def english_language_required(self):
+        self.__language_subject.set_language("english")
+        self.__language_subject.notify()
+
+    def romanian_language_required(self):
+        self.__language_subject.set_language("romanian")
+        self.__language_subject.notify()
+
+    def spanish_language_required(self):
+        self.__language_subject.set_language("spanish")
+        self.__language_subject.notify()
 
     def change_password_button_listener(self):
         change_password_button = self.__administrator_view.get_change_admin_password_button()
@@ -113,7 +143,7 @@ class AdministratorController:
                                                       employees[row - 1].get_last_name(),
                                                       updated_first_name, updated_last_name, True)
                 if len(updated_coordinator) != 0:
-                    if updated_coordinator == "Not assigned":
+                    if updated_coordinator == "-":
                         self.__employees_data.assign_coordinator(updated_first_name,
                                                                  updated_last_name,
                                                                  None, None)

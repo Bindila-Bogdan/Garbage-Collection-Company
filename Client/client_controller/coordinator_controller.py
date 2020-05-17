@@ -1,17 +1,50 @@
 from model.employee import Employee
-from reports.report import Report
+from reports.report_builder import ReportBuilder
 
 
 class CoordinatorController:
-    def __init__(self, coordinator_view, processing_builder, coordinator, route_gen):
+    def __init__(self, coordinator_view, processing_builder, coordinator, route_gen, language_subject):
         self.__coordinator_view = coordinator_view
         self.__coordinator = coordinator
         self.__coordinator_window = self.__coordinator_view.get_coordinator_window()
         self.__processing_builder = processing_builder
-        self.__reports = Report()
+        self.__reports = ReportBuilder()
+        self.__csv_reports = self.__reports.get_csv_report()
+        self.__json_reports = self.__reports.get_json_report()
+        self.__xml_reports = self.__reports.get_xml_report()
         self.__route_gen = route_gen
         self.__employees_data = self.__processing_builder.get_employees_processing()
         self.__locations_data = self.__processing_builder.get_locations_processing()
+        self.__language_subject = language_subject
+
+    def language_buttons_listeners(self):
+        french_language_button = self.__coordinator_view.get_french_language_button()
+        french_language_button.config(command=self.french_language_required)
+
+        english_language_button = self.__coordinator_view.get_english_language_button()
+        english_language_button.config(command=self.english_language_required)
+
+        romanian_language_button = self.__coordinator_view.get_romanian_language_button()
+        romanian_language_button.config(command=self.romanian_language_required)
+
+        spanish_language_button = self.__coordinator_view.get_spanish_language_button()
+        spanish_language_button.config(command=self.spanish_language_required)
+
+    def french_language_required(self):
+        self.__language_subject.set_language("french")
+        self.__language_subject.notify()
+
+    def english_language_required(self):
+        self.__language_subject.set_language("english")
+        self.__language_subject.notify()
+
+    def romanian_language_required(self):
+        self.__language_subject.set_language("romanian")
+        self.__language_subject.notify()
+
+    def spanish_language_required(self):
+        self.__language_subject.set_language("spanish")
+        self.__language_subject.notify()
 
     def change_password_listener(self):
         change_password_button = self.__coordinator_view.get_change_password_button()
@@ -86,16 +119,18 @@ class CoordinatorController:
 
     def generate_csv_report(self):
         self.__prepare_data()
-        self.__reports.write_in_csv_file(self.__coordinator.get_first_name() + "_" + self.__coordinator.get_last_name())
+        self.__csv_reports.write_in_csv_file(
+            self.__coordinator.get_first_name() + "_" + self.__coordinator.get_last_name())
 
     def generate_json_report(self):
         self.__prepare_data()
-        self.__reports.write_in_json_file(
+        self.__json_reports.write_in_json_file(
             self.__coordinator.get_first_name() + "_" + self.__coordinator.get_last_name())
 
     def generate_xml_report(self):
         self.__prepare_data()
-        self.__reports.write_in_xml_file(self.__coordinator.get_first_name() + "_" + self.__coordinator.get_last_name())
+        self.__xml_reports.write_in_xml_file(
+            self.__coordinator.get_first_name() + "_" + self.__coordinator.get_last_name())
 
     def update_employees_table(self):
         coordinator_name = self.__coordinator.get_first_name() + " " + self.__coordinator.get_last_name()
@@ -150,7 +185,7 @@ class CoordinatorController:
                 if row <= number_of_employees:
                     if column == 3:
                         assigned_location = employees_table[row][column].get()
-                        if assigned_location == "Not assigned":
+                        if assigned_location == "-":
                             self.__employees_data.assign_location(employees[row - 1].get_first_name(),
                                                                   employees[row - 1].get_last_name(),
                                                                   None)
@@ -165,7 +200,7 @@ class CoordinatorController:
             if isinstance(employee, Employee):
                 if str(employee.get_location()) == str(location.get_name()):
                     return employee.get_first_name() + " " + employee.get_last_name()
-        return "Not assigned"
+        return "-"
 
     def check_assignation(self, full_employee_name, coordinator):
         for employee in self.__employees_data.get_employees():
@@ -190,7 +225,7 @@ class CoordinatorController:
                         ox_coord = locations_table[row][column].get()
                     elif column == 4:
                         oy_coord = locations_table[row][column].get()
-            if full_employee_name == "Not assigned" or self.check_assignation(full_employee_name, self.__coordinator):
+            if full_employee_name == "-" or self.check_assignation(full_employee_name, self.__coordinator):
                 if len(location_name) != 0 and CoordinatorController.is_number(ox_coord) and \
                         CoordinatorController.is_number(oy_coord):
                     self.__locations_data.modify_current_location(location_name, ox_coord, oy_coord)

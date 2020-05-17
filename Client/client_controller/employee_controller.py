@@ -1,5 +1,5 @@
 class EmployeeController:
-    def __init__(self, employee_view, processing_builder, employee):
+    def __init__(self, employee_view, processing_builder, employee, language_subject):
         self.__employee_view = employee_view
         self.__employee = employee
         self.__employee_window = self.__employee_view.get_employee_window()
@@ -7,6 +7,36 @@ class EmployeeController:
         self.__employees_data = self.__processing_builder.get_employees_processing()
         self.__locations_data = self.__processing_builder.get_locations_processing()
         self.__accounts_data = self.__employees_data.get_accounts()
+        self.__language_subject = language_subject
+
+    def language_buttons_listeners(self):
+        french_language_button = self.__employee_view.get_french_language_button()
+        french_language_button.config(command=self.french_language_required)
+
+        english_language_button = self.__employee_view.get_english_language_button()
+        english_language_button.config(command=self.english_language_required)
+
+        romanian_language_button = self.__employee_view.get_romanian_language_button()
+        romanian_language_button.config(command=self.romanian_language_required)
+
+        spanish_language_button = self.__employee_view.get_spanish_language_button()
+        spanish_language_button.config(command=self.spanish_language_required)
+
+    def french_language_required(self):
+        self.__language_subject.set_language("french")
+        self.__language_subject.notify()
+
+    def english_language_required(self):
+        self.__language_subject.set_language("english")
+        self.__language_subject.notify()
+
+    def romanian_language_required(self):
+        self.__language_subject.set_language("romanian")
+        self.__language_subject.notify()
+
+    def spanish_language_required(self):
+        self.__language_subject.set_language("spanish")
+        self.__language_subject.notify()
 
     def change_password_listener(self):
         change_password_button = self.__employee_view.get_change_password_button()

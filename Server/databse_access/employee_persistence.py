@@ -2,7 +2,7 @@ from databse_access.account_persistence import AccountPersistence
 from mysql.connector.errors import IntegrityError
 from model.employee_account import EmployeeAccount
 from model.coordinator_account import CoordinatorAccount
-from databse_access.manager import Manager
+from databse_access.database_manager import DatabaseManager
 from databse_access.persistence import Persistence
 from model.employee_factory import EmployeeFactory
 from model.administrator_account import AdministratorAccount
@@ -29,7 +29,7 @@ class EmployeePersistence(Persistence):
         AccountPersistence.add_account(account_username, account_password)
         ids = AccountPersistence.get_account_id(account_username, account_password)
 
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
 
         data = (first_name, last_name, ids[0][0])
         if employee:
@@ -52,7 +52,7 @@ class EmployeePersistence(Persistence):
     @staticmethod
     def delete_employee(first_name, last_name, employee):
         if employee is False and employee is not None:
-            connection, cursor = Manager.connect()
+            connection, cursor = DatabaseManager.connect()
             delete_coordinator_statement = "UPDATE employee SET coordinator_first_name = %s, " + \
                                            "coordinator_last_name = %s WHERE coordinator_first_name = %s " \
                                            "AND coordinator_last_name = %s"
@@ -61,7 +61,7 @@ class EmployeePersistence(Persistence):
             connection.commit()
             connection.close()
 
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_account_id_statement = "SELECT account_id FROM employee WHERE first_name = %s and last_name = %s"
         values = (first_name, last_name)
         cursor.execute(get_account_id_statement, values)
@@ -89,7 +89,7 @@ class EmployeePersistence(Persistence):
             for emp in employees:
                 self.remove_coordinator(emp[0], emp[1])
 
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         if employee:
             update_statement = "UPDATE employee SET first_name = %s, " + \
                                "last_name = %s WHERE first_name = %s AND last_name = %s"
@@ -113,7 +113,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def set_new_username(new_first_name, new_last_name, employee):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         if employee:
             get_account_id_statement = "SELECT account_id FROM employee WHERE first_name = %s AND last_name = %s"
         elif employee is not None:
@@ -136,7 +136,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def set_new_password(first_name, last_name, new_password, employee):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         if employee:
             get_account_id_statement = "SELECT account_id FROM employee WHERE first_name = %s AND last_name = %s"
         elif employee is not None:
@@ -152,7 +152,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def set_coordinator(first_name, last_name, coordinator_fist_name, coordinator_last_name):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         update_employee_statement = "UPDATE employee SET coordinator_first_name = %s, " + \
                                     "coordinator_last_name = %s WHERE first_name = %s AND last_name = %s"
         values = (coordinator_fist_name, coordinator_last_name, first_name, last_name)
@@ -165,7 +165,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def remove_coordinator(first_name, last_name):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         update_employee_statement = "UPDATE employee SET coordinator_first_name = %s, " + \
                                     "coordinator_last_name = %s WHERE first_name = %s AND last_name = %s"
         values = (None, None, first_name, last_name)
@@ -177,7 +177,7 @@ class EmployeePersistence(Persistence):
     def set_location(first_name, last_name, location_name):
         if location_name is None:
             EmployeePersistence.remove_location(first_name, last_name)
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         update_employee_statement = "UPDATE employee SET loc_id = %s " + \
                                     "WHERE first_name = %s AND last_name = %s"
         values = (location_name, first_name, last_name)
@@ -190,7 +190,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def remove_locations_from_employees(location_name):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_employee_statement = "SELECT first_name, last_name FROM employee WHERE loc_id =" + location_name
         cursor.execute(get_employee_statement)
         employees = cursor.fetchall()
@@ -200,7 +200,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def remove_location(first_name, last_name):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         update_employee_statement = "UPDATE employee SET loc_id = %s " + \
                                     "WHERE first_name = %s AND last_name = %s"
         values = (None, first_name, last_name)
@@ -210,7 +210,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def get_coordinated_employees(coordinator_first_name, coordinator_last_name):
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_coordinated_employees_statement = "SELECT * FROM employee WHERE coordinator_first_name = %s AND" + \
                                               " coordinator_last_name = %s"
         values = (coordinator_first_name, coordinator_last_name)
@@ -221,7 +221,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def display_employees():
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_employees_statement = "SELECT * FROM employee"
         cursor.execute(get_employees_statement)
         employees = cursor.fetchall()
@@ -231,7 +231,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def display_coordinators():
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_coordinators_statement = "SELECT * FROM coordinator"
         cursor.execute(get_coordinators_statement)
         coordinators = cursor.fetchall()
@@ -241,7 +241,7 @@ class EmployeePersistence(Persistence):
 
     @staticmethod
     def display_administrators():
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_administrators_statement = "SELECT * FROM administrator"
         cursor.execute(get_administrators_statement)
         administrators = cursor.fetchall()
@@ -266,7 +266,7 @@ class EmployeePersistence(Persistence):
 
     def get_employees(self):
         self.__employees = []
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_employees_statement = "SELECT * FROM employee"
         cursor.execute(get_employees_statement)
         employees = cursor.fetchall()
@@ -283,7 +283,7 @@ class EmployeePersistence(Persistence):
 
     def get_coordinators(self):
         self.__coordinators = []
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_coordinators_statement = "SELECT * FROM coordinator"
         cursor.execute(get_coordinators_statement)
         coordinators = cursor.fetchall()
@@ -297,7 +297,7 @@ class EmployeePersistence(Persistence):
 
     def get_administrators(self):
         self.__administrators = []
-        connection, cursor = Manager.connect()
+        connection, cursor = DatabaseManager.connect()
         get_administrator_statement = "SELECT * FROM administrator"
         cursor.execute(get_administrator_statement)
         administrators = cursor.fetchall()
